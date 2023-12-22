@@ -14,7 +14,7 @@
             </div>
             <div class = "buttons">
                 <button class="btn" id = "yesButton" onclick="nextPage()">Yes</button>
-                <button class="btn" id="noButton" onclick="moveButton()" onmouseover="moveButton()">No</button>
+                <button class="btn" id="noButton" onclick="hideButton()" onmouseover="moveButton()">No</button>
                 <script>
                     function nextPage() {
                         window.location.href = "yes.html";
@@ -25,6 +25,14 @@
                         var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight);
                         document.getElementById('noButton').style.left = `${x}px`;
                         document.getElementById('noButton').style.top = `${y}px`;
+                    }
+                    function hideButton() {
+                        var noButton = document.getElementById('noButton');
+                        noButton.style.display = 'none';
+                        setTimeout(function() {
+                            noButton.style.display = 'block';
+                            moveButton(); // Optional: Move the button to a new position after it reappears
+                        }, 2000);
                     }
                 </script> 
             </div>
